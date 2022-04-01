@@ -10,19 +10,28 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 const feelingReducer = (state = 0, action) => {
-    if (action.type === 'ADD_FEELING') //NEED TO FIX!
-    return state + action.payload
-        //right now it's an object; need a number
-    
+    if (action.type === 'ADD_FEELING') {
+        return state, action.payload;
+    } else {
+        return state
+    }
 }
 
-// const understandingReducer = (state = 0, action) => {
+const understandingReducer = (state = 0, action) => {
+    if (action.type === 'ADD_UNDERSTANDING') {
+        return state, action.payload;
+    } else {
+        return state
+    }
+}
 
-// }
-
-// const supportReducer = (state = 0, action) => {
-
-// }
+const supportReducer = (state = 0, action) => {
+    if (action.type === 'ADD_SUPPORT') {
+        return state, action.payload;
+    } else {
+        return state
+    }
+}
 
 // const commentReducer = (state = '', action) => {
 
