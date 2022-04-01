@@ -10,10 +10,10 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 const feelingReducer = (state = 0, action) => {
-    return (
-        state + action.payload
-        //NEED TO TEST: does this give me a usable number or an object?
-    )
+    if (action.type === 'ADD_FEELING') //NEED TO FIX!
+    return state + action.payload
+        //right now it's an object; need a number
+    
 }
 
 // const understandingReducer = (state = 0, action) => {
