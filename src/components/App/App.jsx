@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import OneFeeling from '../OneFeeling/OneFeeling';
+import TwoUnderstanding from '../TwoUnderstanding/TwoUnderstanding';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     </div>
     
       <OneFeeling />
+      <TwoUnderstanding />
       </>
   );
 }
