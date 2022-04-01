@@ -5,7 +5,7 @@ import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom'
 function OneFeeling(params) {
 
     const dispatch = useDispatch();
-    const orderReducer = useSelector(store => store.orderReducer)
+    const scoreReducer = useSelector(store => store.scoreReducer)
     const history = useHistory();
 
     const [newFeeling, setNewFeeling] = useState(0);

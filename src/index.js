@@ -9,7 +9,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const
+//NEED TO WORK ON!
 const scoreReducer = (state = 0, action) => {
     switch (action.type) {
         case 'ADD_FEELING':
@@ -18,46 +18,50 @@ const scoreReducer = (state = 0, action) => {
             return state, action.payload;
         case 'ADD_SUPPORT':
             return state, action.payload;
+        default:
+            return state;
     }
+}
 
-    const feelingReducer = (state = 0, action) => {
-        if (action.type === 'ADD_FEELING') {
-            return state, action.payload;
-        } else {
-            return state
-        }
+// const feelingReducer = (state = 0, action) => {
+//     if (action.type === 'ADD_FEELING') {
+//         return state, action.payload;
+//     } else {
+//         return state
+//     }
+// }
+
+const understandingReducer = (state = 0, action) => {
+    if (action.type === 'ADD_UNDERSTANDING') {
+        return state, action.payload;
+    } else {
+        return state
     }
+}
 
-    const understandingReducer = (state = 0, action) => {
-        if (action.type === 'ADD_UNDERSTANDING') {
-            return state, action.payload;
-        } else {
-            return state
-        }
+const supportReducer = (state = 0, action) => {
+    if (action.type === 'ADD_SUPPORT') {
+        return state, action.payload;
+    } else {
+        return state
     }
+}
 
-    const supportReducer = (state = 0, action) => {
-        if (action.type === 'ADD_SUPPORT') {
-            return state, action.payload;
-        } else {
-            return state
-        }
-    }
+// const commentReducer = (state = '', action) => {
 
-    // const commentReducer = (state = '', action) => {
+// }
 
-    // }
+const store = createStore(
+    combineReducers({
+        //add reducers and combineReducers
+        // commentReducer,
+        // supportReducer,
+        // understandingReducer,
+        // feelingReducer
+        scoreReducer
+    }),
+    applyMiddleware(logger)
+);
 
-    const store = createStore(
-        combineReducers({
-            //add reducers and combineReducers
-            // commentReducer,
-            // supportReducer,
-            // understandingReducer,
-            feelingReducer
-        }),
-        applyMiddleware(logger)
-    );
-
-    ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
-    registerServiceWorker();
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+registerServiceWorker();
