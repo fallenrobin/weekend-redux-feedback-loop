@@ -14,7 +14,7 @@ function FourComments() {
         console.log('clicked into handleSubmit!', newComment);
         event.preventDefault();
 
-        // history.push('/'); NEED TO DO
+        history.push('/submitted'); 
 
         dispatch({
             type: 'ADD_COMMENT',

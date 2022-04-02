@@ -8,6 +8,8 @@ import OneFeeling from '../OneFeeling/OneFeeling';
 import TwoUnderstanding from '../TwoUnderstanding/TwoUnderstanding';
 import ThreeSupport from '../ThreeSupport/ThreeSupport';
 import FourComments from '../FourComments/FourComments';
+import Review from '../Review/Review';
+import Submitted from '../Submitted/Submitted';
 
 function App() {
 
@@ -35,6 +37,15 @@ function App() {
       <Route path='/fourComments'>
         <FourComments />
       </Route>
+
+      <Route path='/review'>
+        <Review />
+      </Route>
+
+      <Route path='/submitted'>
+        <Submitted />
+      </Route>
+
     </Router>
 
   );
