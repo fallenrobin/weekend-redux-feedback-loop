@@ -31,7 +31,7 @@ function FourComments() {
             </div>
             <form>
                 <input type="text" onChange={event => setNewComment(event.target.value)}></input> 
-                <button onClick={handleSubmit}>Submit</button>
+                <button onClick={handleSubmit}>Continue to review</button>
             </form>
 
         </div>

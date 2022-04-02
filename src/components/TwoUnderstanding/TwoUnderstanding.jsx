@@ -31,7 +31,7 @@ function TwoUnderstanding() {
             </div>
             <form>
                 <input type="number" onChange={event => setNewUnderstanding(event.target.value)}></input>
-                <button onClick={handleSubmit}>Submit</button>
+                <button onClick={handleSubmit}>Next</button>
             </form>
 
         </div>
