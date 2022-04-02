@@ -6,16 +6,22 @@ import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom'
 function Review() {
 
     const dispatch = useDispatch();
-    const scoreReducer = useSelector(store => store.scoreReducer)
     const history = useHistory();
+    const feedback = useSelector(store => store.scoreReducer)
 
     const handleSubmit = (event) => {
         console.log('clicked into reviewSubmit!');
 
-        // need store for return (<p> tags)
-        // need axios POST on click
 
-        history.push('/done');
+        // need axios POST on click
+        axios.post('/feedback', feedback)
+            .then(response => {
+                history.push('/submitted');
+            })
+            .catch(error => {
+                console.log('error in post', error);
+                alert('There was a problem submitting your feedback 😿')
+            });
     }
 
 

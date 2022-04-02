@@ -19,16 +19,16 @@ const feedbackObj = {
 const scoreReducer = (state = feedbackObj, action) => {
     switch (action.type) {
         case 'ADD_FEELING':
-            feedbackObj.feeling = action.payload;
+            feedbackObj.feeling = action.payload.feeling;
             return state;
         case 'ADD_UNDERSTANDING':
-            feedbackObj.understanding = action.payload;
+            feedbackObj.understanding = action.payload.understanding;
             return state;
         case 'ADD_SUPPORT':
-            feedbackObj.support = action.payload;
+            feedbackObj.support = action.payload.support;
             return state;
         case 'ADD_COMMENT':
-            feedbackObj.comments = action.payload;
+            feedbackObj.comments = action.payload.comments;
             return state;
         default:
             return state;
@@ -36,8 +36,8 @@ const scoreReducer = (state = feedbackObj, action) => {
 }
 
 
-const store = createStore(
-    combineReducers({
+const store = createStore( 
+    combineReducers({ // <- I figure I might need to add more reducer(s)
         scoreReducer
     }),
     applyMiddleware(logger)
