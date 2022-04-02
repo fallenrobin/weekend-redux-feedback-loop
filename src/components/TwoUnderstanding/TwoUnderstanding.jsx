@@ -14,14 +14,14 @@ function TwoUnderstanding() {
         console.log('clicked into handleSubmit!', newUnderstanding);
         event.preventDefault();
 
-        // history.push('/'); NEED TO DO
-
         dispatch({
             type: 'ADD_UNDERSTANDING',
             payload: {
-                understanding : newUnderstanding
+                understanding: newUnderstanding
             }
         });
+
+        history.push('/threeSupport');
     }
 
     return (
@@ -30,7 +30,7 @@ function TwoUnderstanding() {
                 <h1>How well are you understanding the content?</h1>
             </div>
             <form>
-                <input type="number" onChange={event => setNewUnderstanding(event.target.value)}></input> 
+                <input type="number" onChange={event => setNewUnderstanding(event.target.value)}></input>
                 <button onClick={handleSubmit}>Submit</button>
             </form>
 

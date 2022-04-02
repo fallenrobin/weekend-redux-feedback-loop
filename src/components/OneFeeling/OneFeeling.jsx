@@ -14,14 +14,14 @@ function OneFeeling(params) {
         console.log('clicked into handleSubmit!', newFeeling);
         event.preventDefault();
 
-        // history.push('/'); NEED TO DO
-
         dispatch({
             type: 'ADD_FEELING',
             payload: {
                 feeling : newFeeling
             }
         });
+
+        history.push('/twoUnderstanding'); 
     }
 
     return (

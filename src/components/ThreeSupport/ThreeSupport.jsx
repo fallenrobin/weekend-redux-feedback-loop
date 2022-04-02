@@ -14,14 +14,14 @@ function ThreeSupport() {
         console.log('clicked into handleSubmit!', newSupport);
         event.preventDefault();
 
-        // history.push('/'); NEED TO DO
-
         dispatch({
             type: 'ADD_SUPPORT',
             payload: {
                 support : newSupport
             }
         });
+
+        history.push('/fourComments');
     }
 
     return (
