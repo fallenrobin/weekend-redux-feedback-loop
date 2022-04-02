@@ -64,15 +64,18 @@ function OneFeeling(params) {
     const handleSubmit = (event) => {
         console.log('clicked into handleSubmit!', newFeeling);
         // event.preventDefault();
+        if (newFeeling === 0) {
+            alert('Please click a smiley to continue!')
+        } else {
+            dispatch({
+                type: 'ADD_FEELING',
+                payload: {
+                    feeling: newFeeling
+                }
+            });
 
-        dispatch({
-            type: 'ADD_FEELING',
-            payload: {
-                feeling: newFeeling
-            }
-        });
-
-        history.push('/twoUnderstanding');
+            history.push('/twoUnderstanding');
+        }
     }
 
     return (
