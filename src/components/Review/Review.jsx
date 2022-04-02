@@ -12,10 +12,10 @@ function Review() {
     const handleSubmit = (event) => {
         console.log('clicked into reviewSubmit!');
 
-       //need axios POST
-       //then fetch? No
+        // need store for return (<p> tags)
+        // need axios POST on click
 
-        history.push('/done');  
+        history.push('/done');
     }
 
 
