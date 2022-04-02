@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+
 
 function OneFeeling(params) {
 
@@ -31,7 +33,8 @@ function OneFeeling(params) {
             </div>
             <form>
                 <input type="number" onChange={event => setNewFeeling(event.target.value)}></input> 
-                <button onClick={handleSubmit}>Submit</button>
+                <Button variant="raised" color="primary" 
+                onClick={handleSubmit}>Submit</Button>
             </form>
 
         </div>

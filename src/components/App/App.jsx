@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
+import '@fontsource/roboto';
 
 import OneFeeling from '../OneFeeling/OneFeeling';
 import TwoUnderstanding from '../TwoUnderstanding/TwoUnderstanding';
