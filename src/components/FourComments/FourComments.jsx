@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 
+
+
+
 function FourComments() {
 
     const dispatch = useDispatch();
@@ -31,7 +34,7 @@ function FourComments() {
             </div>
             <form>
                 <input type="text" onChange={event => setNewComment(event.target.value)}></input> 
-                <button onClick={handleSubmit}>Submit</button>
+                <button onClick={handleSubmit}>Continue to review</button>
             </form>
 
         </div>
