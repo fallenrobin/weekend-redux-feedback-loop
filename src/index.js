@@ -28,6 +28,9 @@ const scoreReducer = (state = feedbackObj, action) => {
         case 'ADD_SUPPORT':
             feedbackObj.support = action.payload;
             return state;
+        case 'ADD_COMMENT':
+            feedbackObj.comments = action.payload;
+            return state;
         default:
             return state;
     }
