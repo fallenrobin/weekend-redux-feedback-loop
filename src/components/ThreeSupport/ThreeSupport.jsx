@@ -47,57 +47,58 @@ function valuetext(value) {
 
 function ThreeSupport() {
 
-    const dispatch = useDispatch();
-    const orderReducer = useSelector(store => store.scoreReducer)
-    const history = useHistory();
+  const dispatch = useDispatch();
+  const orderReducer = useSelector(store => store.scoreReducer)
+  const history = useHistory();
 
-    const [newSupport, setNewSupport] = useState(0);
+  const [newSupport, setNewSupport] = useState(0);
 
-    const handleSubmit = (event) => {
-        console.log('clicked into handleSubmit!', newSupport);
-        // event.preventDefault();
-
-        dispatch({
-            type: 'ADD_SUPPORT',
-            payload: {
-                support : newSupport
-            }
-        });
-
-        history.push('/fourComments');
+  const handleSubmit = (event) => {
+    console.log('clicked into handleSubmit!', newSupport);
+    if (newSupport === 0) {
+      alert('Please use the slider to select a number to continue!')
+    } else {
+      dispatch({
+        type: 'ADD_SUPPORT',
+        payload: {
+          support: newSupport
+        }
+      });
+      history.push('/fourComments');
     }
+  }
 
-    return (
-        <div>
-            <div>
-                <h1>How well are you being supported?</h1>
-            </div>
+  return (
+    <div>
+      <div>
+        <h1>How well are you being supported?</h1>
+      </div>
 
-            <div >
-                
-      <Typography id="discrete-slider-custom" gutterBottom>
-        How supported did you feel today?
-      </Typography>
-      <Box sx={{ width: 300 }}>
-      <Slider
-        aria-label="Temperature"
-        defaultValue={0}
-        getAriaValueText={valuetext}
-        valueLabelDisplay="auto"
-        step={1}
-        marks
-        min={1}
-        max={5}
-        onChange={(event, newValue) => setNewSupport(newValue)}
-      />
-    </Box>
-        
-      
+      <div >
+
+        <Typography id="discrete-slider-custom" gutterBottom>
+          How supported did you feel today?
+        </Typography>
+        <Box sx={{ width: 300 }}>
+          <Slider
+            aria-label="Temperature"
+            defaultValue={0}
+            getAriaValueText={valuetext}
+            valueLabelDisplay="auto"
+            step={1}
+            marks
+            min={1}
+            max={5}
+            onChange={(event, newValue) => setNewSupport(newValue)}
+          />
+        </Box>
+
+
+      </div>
+      {/* <input type="number" ></input>  */}
+      <button onClick={handleSubmit}>Next</button>
     </div>
-                {/* <input type="number" ></input>  */}
-                <button onClick={handleSubmit}>Next</button>
-        </div>
-    )
+  )
 }
 
 
