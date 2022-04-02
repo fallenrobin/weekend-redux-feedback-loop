@@ -32,7 +32,7 @@ function Review() {
                 <p>Feedback: {feedback.feeling}</p>
                 <p>Understanding: {feedback.understanding}</p>
                 <p>Support: {feedback.support}</p>
-                <p>Comments: {feedback.comments}</p>
+                <p>Comments: {feedback.feeling}</p>
                 <button onClick={handleSubmit}>Submit</button>
 
             </div>
