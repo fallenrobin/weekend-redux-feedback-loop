@@ -9,6 +9,8 @@ import EscalatorWarningIcon from '@mui/icons-material/EscalatorWarning';
 import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
+import Box from '@material-ui/core/Box';
+
 
 const customIcons = {
     1: {
@@ -75,7 +77,7 @@ function TwoUnderstanding() {
             <div>
                 <h1>How well are you understanding the content?</h1>
             </div>
-            <form>
+            <Box component="fieldset" mb={3} borderColor="transparent">
                 <Rating
                     name="highlight-selected-only"
                     defaultValue={0}
@@ -83,9 +85,8 @@ function TwoUnderstanding() {
                     highlightSelectedOnly
                     onChange={(event, newValue) => setNewUnderstanding(newValue)}
                 />
-                {/* <input type="number" onChange={event => setNewUnderstanding(event.target.value)}></input> */}
-                <button onClick={handleSubmit}>Next</button>
-            </form>
+            </Box>
+            <button onClick={handleSubmit}>Next</button>
 
         </div>
     )
