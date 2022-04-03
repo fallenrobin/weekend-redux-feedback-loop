@@ -5,7 +5,7 @@ import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom'
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
+//MUI content for card
 import Typography from '@mui/material/Typography';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -46,9 +46,9 @@ function FourComments() {
         console.log('clicked into handleSubmit!', newComment);
         event.preventDefault();
 
-        history.push('/review');
+        history.push('/review');//pushes to final review
 
-        dispatch({
+        dispatch({ //sends comment to reducer; ok if blank
             type: 'ADD_COMMENT',
             payload: {
                 comments: newComment

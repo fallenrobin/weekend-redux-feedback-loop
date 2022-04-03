@@ -1,6 +1,7 @@
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+//MUI for card
 import Typography from '@mui/material/Typography';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -35,20 +36,10 @@ function Submitted() {
     const handleSubmit = (event) => {
         console.log('clicked into Submitted!');
 
-        history.push('/');
+        history.push('/');//starts over at 'Home' that has OneFeeling
     }
 
     return (
-        // <>
-        //     <div>
-        //         <h1>Thanks for your feedback!</h1>
-
-        //         <Button variant="contained" color="primary"
-        //             onClick={handleSubmit}>Back to the Beginning</Button>
-
-        //     </div>
-
-        // </>
         <Grid
             container
             spacing={0}
@@ -63,14 +54,13 @@ function Submitted() {
                 <Card className={classes.root} variant="outlined">
                     <CardContent>
 
-
                         <Typography variant="h5" component="h2">
                             Thanks for your feedback!
                         </Typography>
 
                     </CardContent>
 
-                    <CardActions style={{justifyContent: 'center'}}> {/* centers button*/}
+                    <CardActions style={{ justifyContent: 'center' }}> {/* centers button*/}
                         <Button variant="contained" color="primary"
                             onClick={handleSubmit}>Back to the Beginning</Button>
                     </CardActions>

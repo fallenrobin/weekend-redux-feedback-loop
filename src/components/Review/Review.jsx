@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 // import Icon from '@material-ui/core/Icon'; //was for 'send' icon in submit button; couldn't get to work right
 
+//MUI content for card
 import Typography from '@mui/material/Typography';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -34,9 +35,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function Review() {
 
-    const dispatch = useDispatch();
+    //no dispatch needed in this component since we POST
     const history = useHistory();
     const feedback = useSelector(store => store.scoreReducer)
+    //need the feedback (store.scoreReducer) for review in DOM, and POST
 
     const classes = useStyles();
 
@@ -45,9 +47,9 @@ function Review() {
     const handleSubmit = (event) => {
         console.log('clicked into reviewSubmit!');
 
-        axios.post('/feedback', feedback)
+        axios.post('/feedback', feedback) //sending final data to DB
             .then(response => {
-                history.push('/submitted');
+                history.push('/submitted'); //pushes to Submitted when successful
             })
             .catch(error => {
                 console.log('error in post', error);

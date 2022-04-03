@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 
+//MUI for icon rating
 import PropTypes from 'prop-types';
 import Rating from '@mui/material/Rating';
 import ChildFriendlyIcon from '@mui/icons-material/ChildFriendly';
@@ -12,12 +13,13 @@ import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 
+//start specific MUI card content
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-//grid for centering
+//grid for centering card
 import Grid from '@material-ui/core/Grid';
 
 
@@ -88,17 +90,16 @@ function TwoUnderstanding() {
 
     const handleSubmit = (event) => {
         console.log('clicked into handleSubmit!', newUnderstanding);
-        // event.preventDefault();
         if (newUnderstanding === 0) {
             alert('Reflect on your mental grasp of the content, and place yourself on a scale of Incompetent-Baby to Velodrome-Racer to continue!')
         } else {
-            dispatch({
+            dispatch({ //sending the selected understanding rating to reducer
                 type: 'ADD_UNDERSTANDING',
                 payload: {
                     understanding: newUnderstanding
                 }
             });
-            history.push('/threeSupport');
+            history.push('/threeSupport'); //pushing to next form
         }
     }
 

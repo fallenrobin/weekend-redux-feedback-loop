@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 
 import Typography from '@mui/material/Typography';
-// import Slider from '@material-ui/core/Slider';
+// import Slider from '@material-ui/core/Slider';// Replaced this with icons
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -13,6 +13,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
 // import Alert from '@material-ui/lab/Alert'; Hm couldn't get to pop up..? Revisit later. (removed rest of that code)
 
+//start specific MUI card content
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -135,14 +136,14 @@ function ThreeSupport() {
     console.log('clicked into handleSubmit!', newSupport);
     if (newSupport === 0) {
       alert('Please enter your level of supportnacity to continue!')
-    } else {
+    } else { //sending the selected support rating to reducer
       dispatch({
         type: 'ADD_SUPPORT',
         payload: {
           support: newSupport
         }
       });
-      history.push('/fourComments');
+      history.push('/fourComments'); //pushing to next form
     }
   }
 
