@@ -10,6 +10,9 @@ import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+
+
 
 
 const customIcons = {
@@ -58,7 +61,7 @@ function TwoUnderstanding() {
 
     const handleSubmit = (event) => {
         console.log('clicked into handleSubmit!', newUnderstanding);
-
+        // event.preventDefault();
         if (newUnderstanding === 0) {
             alert('Please click a person who represents your level of understanding to continue!')
         } else {
@@ -71,6 +74,8 @@ function TwoUnderstanding() {
             history.push('/threeSupport');
         }
     }
+
+
 
     return (
         <div>
@@ -86,7 +91,9 @@ function TwoUnderstanding() {
                     onChange={(event, newValue) => setNewUnderstanding(newValue)}
                 />
             </Box>
-            <button onClick={handleSubmit}>Next</button>
+            <Button variant="contained" type="button" onClick={() => history.push('/')}>Go Back</Button>
+            <Button variant="contained" color="primary" type="button"
+                onClick={handleSubmit}>Next</Button>
 
         </div>
     )

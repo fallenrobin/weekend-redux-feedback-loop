@@ -1,4 +1,6 @@
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+
 
 function Submitted() {
 
@@ -10,18 +12,19 @@ function Submitted() {
         history.push('/');
     }
 
-        return (
-            <>
-                <div>
-                    <h1>Thanks for your feedback!</h1>
-                    
-                    <button onClick={handleSubmit}>Leave new feedback</button>
+    return (
+        <>
+            <div>
+                <h1>Thanks for your feedback!</h1>
 
-                </div>
+                <Button variant="contained" color="primary"
+                    onClick={handleSubmit}>Back to the Beginning</Button>
 
-            </>
-        )
-    }
+            </div>
+
+        </>
+    )
+}
 
 
 
