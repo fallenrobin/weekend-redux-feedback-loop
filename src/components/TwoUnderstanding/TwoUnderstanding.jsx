@@ -12,13 +12,13 @@ import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 //grid for centering
 import Grid from '@material-ui/core/Grid';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 
 
@@ -90,7 +90,7 @@ function TwoUnderstanding() {
         console.log('clicked into handleSubmit!', newUnderstanding);
         // event.preventDefault();
         if (newUnderstanding === 0) {
-            alert('Please click a person who represents your level of understanding to continue!')
+            alert('Reflect on your mental grasp of the content, and place yourself on a scale of Incompetent-Baby to Velodrome-Racer to continue!')
         } else {
             dispatch({
                 type: 'ADD_UNDERSTANDING',
@@ -146,7 +146,7 @@ function TwoUnderstanding() {
                         </Typography>
 
                         <Typography className={classes.pos} color="textSecondary">
-                            pick how evolved you feel
+                            pick how cognitively evolved you feel
                         </Typography>
 
                         <Rating

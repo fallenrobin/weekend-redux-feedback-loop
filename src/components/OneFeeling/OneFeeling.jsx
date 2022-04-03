@@ -146,7 +146,7 @@ function OneFeeling(params) {
                         </Typography>
 
                         <Typography variant="h5" component="h2">
-                            How are you feeling today?
+                            How are your feels today?
                         </Typography>
 
                         <Typography className={classes.pos} color="textSecondary">
