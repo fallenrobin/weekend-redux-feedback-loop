@@ -12,7 +12,8 @@ import FourComments from '../FourComments/FourComments';
 import Review from '../Review/Review';
 import Submitted from '../Submitted/Submitted';
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"></link>
+      rel="stylesheet"></link>//don't understand if this worked? was for font icon in Review
+import Puppetmaster from '../Puppetmaster/Puppetmaster';
 
 function App() {
 
@@ -47,6 +48,10 @@ function App() {
 
       <Route path='/submitted'>
         <Submitted />
+      </Route>
+
+      <Route path='/admin'>
+        <Puppetmaster />
       </Route>
 
     </Router>
