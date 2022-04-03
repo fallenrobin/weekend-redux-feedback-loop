@@ -81,13 +81,13 @@ function FourComments() {
                         <TextareaAutosize
                             aria-label="empty textarea"
                             placeholder="Speak up! (But like, no pressure)"
-                            style={{ width: 300 }} //how to make it stay within card width??
+                            style={{ width: 345 }} //how to make it stay within card width??
                             minRows={3}
                             onChange={event => setNewComment(event.target.value)}
                         />
                     </CardContent>
 
-                    <CardActions>
+                    <CardActions style={{justifyContent: 'center'}}>
                         <Button variant="contained" type="button"
                             onClick={() => history.push('/threeSupport')}>Go Back</Button>
                         <Button variant="contained" color="primary"

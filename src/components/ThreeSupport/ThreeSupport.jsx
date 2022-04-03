@@ -183,7 +183,7 @@ function ThreeSupport() {
             />
           </CardContent>
 
-          <CardActions>
+          <CardActions style={{justifyContent: 'center'}}>
             <Button variant="contained" type="button"
               onClick={() => history.push('/twoUnderstanding')}>Go Back</Button>
             <Button variant="contained" color="primary"

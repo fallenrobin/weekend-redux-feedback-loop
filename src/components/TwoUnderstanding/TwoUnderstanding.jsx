@@ -139,7 +139,7 @@ function TwoUnderstanding() {
                         />
                     </CardContent>
 
-                    <CardActions>
+                    <CardActions style={{justifyContent: 'center'}}>
                         <Button variant="contained" type="button" onClick={() => history.push('/')}>Go Back</Button>
                         <Button variant="contained" color="primary" type="button"
                             onClick={handleSubmit}>Next</Button>

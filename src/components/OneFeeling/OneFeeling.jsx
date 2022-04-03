@@ -163,7 +163,7 @@ function OneFeeling(params) {
                         />
                     </CardContent>
 
-                    <CardActions>
+                    <CardActions style={{justifyContent: 'center'}}>
                         <Button variant="contained" color="primary"
                             onClick={handleSubmit}>Next</Button>
                     </CardActions>

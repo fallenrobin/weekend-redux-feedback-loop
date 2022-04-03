@@ -78,13 +78,13 @@ function Review() {
                             Here's what you said:
                         </Typography>
 
-                        <p>Feedback: {feedback.feeling} of 5</p>
+                        <p>Feeling: {feedback.feeling} of 5</p>
                         <p>Understanding: {feedback.understanding} of 5</p>
-                        <p>Support: {feedback.support} of 5</p>
+                        <p>Supported: {feedback.support} of 5</p>
                         <p>Comments: {feedback.comments}</p>
                     </CardContent>
 
-                    <CardActions>
+                    <CardActions style={{justifyContent: 'center'}}>
                         <Button variant="contained" type="button"
                             onClick={() => history.push('/fourComments')}>Go Back</Button>
                         <Button
