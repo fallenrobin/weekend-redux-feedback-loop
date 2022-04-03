@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 
-
-
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 
 function FourComments() {
 
@@ -17,12 +16,12 @@ function FourComments() {
         console.log('clicked into handleSubmit!', newComment);
         event.preventDefault();
 
-        history.push('/review'); 
+        history.push('/review');
 
         dispatch({
             type: 'ADD_COMMENT',
             payload: {
-                comments : newComment
+                comments: newComment
             }
         });
     }
@@ -32,11 +31,18 @@ function FourComments() {
             <div>
                 <h1>Any comments you want to leave?</h1>
             </div>
-            <form>
-                <input type="text" onChange={event => setNewComment(event.target.value)}></input> 
-                <button onClick={handleSubmit}>Continue to review</button>
-            </form>
 
+            <form>
+                <TextareaAutosize
+                    aria-label="empty textarea"
+                    placeholder="Enter a comment (optional)"
+                    style={{ width: 400 }}
+                    minRows={3}
+                    onChange={event => setNewComment(event.target.value)}
+                />
+                
+            </form>
+            <button onClick={handleSubmit}>Continue to review</button>
         </div>
     )
 }
