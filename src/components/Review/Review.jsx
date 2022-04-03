@@ -33,6 +33,7 @@ function Review() {
                 <p>Understanding: {feedback.understanding}</p>
                 <p>Support: {feedback.support}</p>
                 <p>Comments: {feedback.feeling}</p>
+                <button type="button" onClick={() => history.push('/fourComments')}>Go Back</button>
                 <button onClick={handleSubmit}>Submit</button>
 
             </div>

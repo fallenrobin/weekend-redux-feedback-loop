@@ -58,7 +58,7 @@ function TwoUnderstanding() {
 
     const handleSubmit = (event) => {
         console.log('clicked into handleSubmit!', newUnderstanding);
-
+        // event.preventDefault();
         if (newUnderstanding === 0) {
             alert('Please click a person who represents your level of understanding to continue!')
         } else {
@@ -71,6 +71,8 @@ function TwoUnderstanding() {
             history.push('/threeSupport');
         }
     }
+
+
 
     return (
         <div>
@@ -86,8 +88,9 @@ function TwoUnderstanding() {
                     onChange={(event, newValue) => setNewUnderstanding(newValue)}
                 />
             </Box>
-            <button onClick={handleSubmit}>Next</button>
-
+            <button type="button" onClick={() => history.push('/')}>Go Back</button>
+            <button type="button" onClick={handleSubmit}>Next</button>
+            
         </div>
     )
 }

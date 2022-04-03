@@ -42,6 +42,7 @@ function FourComments() {
                 />
                 
             </form>
+            <button type="button" onClick={() => history.push('/threeSupport')}>Go Back</button>
             <button onClick={handleSubmit}>Continue to review</button>
         </div>
     )

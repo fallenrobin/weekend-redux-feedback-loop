@@ -95,7 +95,7 @@ function ThreeSupport() {
 
 
       </div>
-      {/* <input type="number" ></input>  */}
+      <button type="button" onClick={() => history.push('/twoUnderstanding')}>Go Back</button>
       <button onClick={handleSubmit}>Next</button>
     </div>
   )
