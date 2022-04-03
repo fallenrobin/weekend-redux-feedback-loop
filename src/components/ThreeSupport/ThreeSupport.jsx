@@ -13,13 +13,18 @@ import { withStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
 // import Alert from '@material-ui/lab/Alert'; Hm couldn't get to pop up..? Revisit later. (removed rest of that code)
 
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+//grid for centering
+import Grid from '@material-ui/core/Grid';
 
 const StyledRating = withStyles({
   iconFilled: {
-      color: '#ff6d75',
+    color: '#ff6d75',
   },
   iconHover: {
-      color: '#ff3d47',
+    color: '#ff3d47',
   },
 })(Rating);
 
@@ -27,24 +32,24 @@ const StyledRating = withStyles({
 
 const customIcons = {
   1: {
-      icon: <VolunteerActivismOutlinedIcon />,
-      label: '1',
+    icon: <VolunteerActivismOutlinedIcon />,
+    label: '1',
   },
   2: {
-      icon: <VolunteerActivismOutlinedIcon />,
-      label: '2',
+    icon: <VolunteerActivismOutlinedIcon />,
+    label: '2',
   },
   3: {
-      icon: <VolunteerActivismOutlinedIcon />,
-      label: '3',
+    icon: <VolunteerActivismOutlinedIcon />,
+    label: '3',
   },
   4: {
-      icon: <VolunteerActivismOutlinedIcon />,
-      label: '4',
+    icon: <VolunteerActivismOutlinedIcon />,
+    label: '4',
   },
   5: {
-      icon: <VolunteerActivismOutlinedIcon />,
-      label: '5',
+    icon: <VolunteerActivismOutlinedIcon />,
+    label: '5',
   },
 };
 
@@ -58,17 +63,36 @@ IconContainer.propTypes = {
 };
 
 
-const newLocal = 200;
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: newLocal,
-  },
-  margin: {
-    height: theme.spacing(3),
-  },
-}));
+// old useStyles, for slider bar
+//const newLocal = 200;
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     width: newLocal,
+//   },
+//   margin: {
+//     height: theme.spacing(3),
+//   },
+// }));
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+      minWidth: 275,//card
+      maxWidth: 400,
+    },
+    title: {
+      fontSize: 14,
+    },
+    pos: {
+      marginBottom: 12,
+    },
+  }),
+);
 
+//old, for slider
 // const marks = [
 //   {
 //     value: 1,
@@ -102,6 +126,8 @@ function ThreeSupport() {
   const orderReducer = useSelector(store => store.scoreReducer)
   const history = useHistory();
 
+  const classes = useStyles(); //for card
+
 
   const [newSupport, setNewSupport] = useState(0);
 
@@ -121,47 +147,52 @@ function ThreeSupport() {
   }
 
   return (
-    <div>
-      <div>
-        <h1>Feeling supported today, or not so much?</h1>
-      </div>
-
-      <div >
-
-        {/* <Typography id="discrete-slider-custom" gutterBottom>
-          Pick 1 through 5
-        </Typography>
-        <Box sx={{ width: 300 }}>
-          <Slider
-            aria-label="Temperature"
-            defaultValue={0}
-            getAriaValueText={valuetext}
-            valueLabelDisplay="auto"
-            step={1}
-            marks
-            min={1}
-            max={5}
-            onChange={(event, newValue) => setNewSupport(newValue)}
-          />
-        </Box> */}
-        <Box component="fieldset" mb={3} borderColor="transparent">
-          <Rating
-            name="customized-icons"
-            defaultValue={0}
-            value={newSupport}
-            getLabelText={(value) => customIcons[value].label}
-            IconContainerComponent={IconContainer}
-            onChange={(event, newValue) => setNewSupport(newValue)}
-          />
-        </Box>
 
 
-      </div>
-      <Button variant="contained" type="button"
-        onClick={() => history.push('/twoUnderstanding')}>Go Back</Button>
-      <Button variant="contained" color="primary"
-        onClick={handleSubmit}>Next</Button>
-    </div>
+    <Grid
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      // justify="center" //better without; this puts in very center of page
+      style={{ minHeight: '100vh' }}
+    >
+
+      <Grid item xs={6}>
+
+        <Card className={classes.root} variant="outlined">
+          <CardContent>
+            <Typography className={classes.title} color="textSecondary" gutterBottom>
+              1 of 4
+            </Typography>
+
+            <Typography variant="h5" component="h2">
+              Feeling supported today, or not so much?
+            </Typography>
+
+            <Typography className={classes.pos} color="textSecondary">
+              How many hearthands supported you today?
+            </Typography>
+
+            <Rating
+              name="customized-icons"
+              defaultValue={0}
+              value={newSupport}
+              getLabelText={(value) => customIcons[value].label}
+              IconContainerComponent={IconContainer}
+              onChange={(event, newValue) => setNewSupport(newValue)}
+            />
+          </CardContent>
+
+          <CardActions>
+            <Button variant="contained" type="button"
+              onClick={() => history.push('/twoUnderstanding')}>Go Back</Button>
+            <Button variant="contained" color="primary"
+              onClick={handleSubmit}>Next</Button>
+          </CardActions>
+        </Card>
+      </Grid>
+    </Grid >
   )
 }
 

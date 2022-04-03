@@ -105,25 +105,6 @@ function TwoUnderstanding() {
 
 
     return (
-        // <div>
-        //     <div>
-        //         <h1>How well are you understanding the content?</h1>
-        //     </div>
-        //     <Box component="fieldset" mb={3} borderColor="transparent">
-        //         <Rating
-        //             name="highlight-selected-only"
-        //             defaultValue={0}
-        //             IconContainerComponent={IconContainer}
-        //             highlightSelectedOnly
-        //             onChange={(event, newValue) => setNewUnderstanding(newValue)}
-        //         />
-        //     </Box>
-        //     <Button variant="contained" type="button" onClick={() => history.push('/')}>Go Back</Button>
-        //     <Button variant="contained" color="primary" type="button"
-        //         onClick={handleSubmit}>Next</Button>
-
-        // </div>
-
         <Grid
             container
             spacing={0}
