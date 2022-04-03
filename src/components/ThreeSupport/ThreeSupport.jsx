@@ -4,8 +4,19 @@ import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom'
 
 import Typography from '@mui/material/Typography';
 import Slider from '@material-ui/core/Slider';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+
+// const useStyles = makeStyles((theme: Theme) =>
+//     createStyles({
+//         root: {
+//             '& > *': {
+//                 margin: theme.spacing(1),
+//             },
+//         },
+//     }),
+// );
 
 
 const newLocal = 200;
@@ -96,7 +107,8 @@ function ThreeSupport() {
 
       </div>
       <button type="button" onClick={() => history.push('/twoUnderstanding')}>Go Back</button>
-      <button onClick={handleSubmit}>Next</button>
+      <Button variant="contained" color="primary"
+        onClick={handleSubmit}>Next</Button>
     </div>
   )
 }

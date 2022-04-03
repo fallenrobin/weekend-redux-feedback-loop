@@ -10,6 +10,18 @@ import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import Box from '@material-ui/core/Box';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            '& > *': {
+                margin: theme.spacing(1),
+            },
+        },
+    }),
+);
 
 
 const customIcons = {
@@ -89,8 +101,9 @@ function TwoUnderstanding() {
                 />
             </Box>
             <button type="button" onClick={() => history.push('/')}>Go Back</button>
-            <button type="button" onClick={handleSubmit}>Next</button>
-            
+            <Button variant="contained" color="primary" type="button"
+                onClick={handleSubmit}>Next</Button>
+
         </div>
     )
 }

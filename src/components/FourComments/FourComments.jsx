@@ -3,6 +3,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 
 import TextareaAutosize from '@mui/material/TextareaAutosize';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            '& > *': {
+                margin: theme.spacing(1),
+            },
+        },
+    }),
+);
 
 function FourComments() {
 
@@ -40,10 +52,11 @@ function FourComments() {
                     minRows={3}
                     onChange={event => setNewComment(event.target.value)}
                 />
-                
+
             </form>
             <button type="button" onClick={() => history.push('/threeSupport')}>Go Back</button>
-            <button onClick={handleSubmit}>Continue to review</button>
+            <Button variant="contained" color="primary"
+                onClick={handleSubmit}>Continue to review</Button>
         </div>
     )
 }
