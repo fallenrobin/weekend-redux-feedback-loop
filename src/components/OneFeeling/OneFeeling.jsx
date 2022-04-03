@@ -24,17 +24,8 @@ import Typography from '@material-ui/core/Typography';
 //grid for centering
 import Grid from '@material-ui/core/Grid';
 
-// from: https://stackoverflow.com/questions/53183297/material-ui-card-will-not-center-react-js
-// function MediaCard(props) {
-//     const { classes } = props;
-//     <Grid
-//      container
-//      spacing={0}
-//      direction="column"
-//      alignItems="center"
-//      justify="center"
-//      style={{ minHeight: '100vh' }}
-//     >
+//card centering resource: https://stackoverflow.com/questions/53183297/material-ui-card-will-not-center-react-js
+
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -113,14 +104,14 @@ function OneFeeling(params) {
 
     const [newFeeling, setNewFeeling] = useState(0);
 
-    //card
+    // for card
     const classes = useStyles();
-    // const bull = <span className={classes.bullet}>•</span>; //not needed for me
+    // const bull = <span className={classes.bullet}>•</span>; //not using bullets rn
     //end card
 
     const handleSubmit = (event) => {
         console.log('clicked into handleSubmit!', newFeeling);
-        // event.preventDefault();
+        // event.preventDefault(); not needed
         if (newFeeling === 0) {
             alert('Please look in a mirror and then click the face that best matches yours to continue!')
         } else {
@@ -136,24 +127,7 @@ function OneFeeling(params) {
     }
 
     return (
-        // <div className="feedbackBox">
-        //     <div>
-        //         <h1>How are you feeling today?</h1>
-        //     </div>
-        //     <form>
-        //         <Box component="fieldset" mb={3} borderColor="transparent">
-        //             <Rating
-        //                 name="customized-icons"
-        //                 defaultValue={0}
-        //                 value={newFeeling}
-        //                 getLabelText={(value) => customIcons[value].label}
-        //                 IconContainerComponent={IconContainer}
-        //                 onChange={(event, newValue) => setNewFeeling(newValue)}
-        //             />
-        //         </Box>
-        //         <Button variant="contained" color="primary"
-        //             onClick={handleSubmit}>Next</Button>
-        //     </form>
+
         <Grid
             container
             spacing={0}
@@ -170,17 +144,15 @@ function OneFeeling(params) {
                         <Typography className={classes.title} color="textSecondary" gutterBottom>
                             1 of 4
                         </Typography>
+
                         <Typography variant="h5" component="h2">
                             How are you feeling today?
                         </Typography>
+
                         <Typography className={classes.pos} color="textSecondary">
                             pick a face
                         </Typography>
-                        {/* <Typography variant="body2" component="p">
-                        well meaning and kindly.
-                        <br />
-                        {'"a benevolent smile"'}
-                    </Typography> */}
+
                         <Rating
                             name="customized-icons"
                             defaultValue={0}
@@ -190,6 +162,7 @@ function OneFeeling(params) {
                             onChange={(event, newValue) => setNewFeeling(newValue)}
                         />
                     </CardContent>
+
                     <CardActions>
                         <Button variant="contained" color="primary"
                             onClick={handleSubmit}>Next</Button>
