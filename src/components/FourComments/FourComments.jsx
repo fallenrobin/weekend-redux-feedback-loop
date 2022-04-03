@@ -13,16 +13,6 @@ import CardContent from '@material-ui/core/CardContent';
 //grid for centering
 import Grid from '@material-ui/core/Grid';
 
-// const useStyles = makeStyles((theme: Theme) =>
-//     createStyles({
-//         root: {
-//             '& > *': {
-//                 margin: theme.spacing(1),
-//             },
-//         },
-//     }),
-// );
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
