@@ -21,6 +21,21 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 // import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+//grid for centering
+import Grid from '@material-ui/core/Grid';
+
+// from: https://stackoverflow.com/questions/53183297/material-ui-card-will-not-center-react-js
+// function MediaCard(props) {
+//     const { classes } = props;
+//     <Grid
+//      container
+//      spacing={0}
+//      direction="column"
+//      alignItems="center"
+//      justify="center"
+//      style={{ minHeight: '100vh' }}
+//     >
+
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -29,6 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 margin: theme.spacing(1),
             },
             minWidth: 275,//card
+            maxWidth: 400,
         },
         // root: {
         //     minWidth: 275,
@@ -138,38 +154,49 @@ function OneFeeling(params) {
         //         <Button variant="contained" color="primary"
         //             onClick={handleSubmit}>Next</Button>
         //     </form>
+        <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            // justify="center" //better without; this puts in very center of page
+            style={{ minHeight: '100vh' }}
+        >
 
-            <Card className={classes.root} variant="outlined">
-                <CardContent>
-                    <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        1 of 4
-                    </Typography>
-                    <Typography variant="h5" component="h2">
-                    How are you feeling today?
-                    </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
-                        pick a face
-                    </Typography>
-                    {/* <Typography variant="body2" component="p">
+            <Grid item xs={6}>
+
+                <Card className={classes.root} variant="outlined">
+                    <CardContent>
+                        <Typography className={classes.title} color="textSecondary" gutterBottom>
+                            1 of 4
+                        </Typography>
+                        <Typography variant="h5" component="h2">
+                            How are you feeling today?
+                        </Typography>
+                        <Typography className={classes.pos} color="textSecondary">
+                            pick a face
+                        </Typography>
+                        {/* <Typography variant="body2" component="p">
                         well meaning and kindly.
                         <br />
                         {'"a benevolent smile"'}
                     </Typography> */}
-                    <Rating
-                        name="customized-icons"
-                        defaultValue={0}
-                        value={newFeeling}
-                        getLabelText={(value) => customIcons[value].label}
-                        IconContainerComponent={IconContainer}
-                        onChange={(event, newValue) => setNewFeeling(newValue)}
-                    />
-                </CardContent>
-                <CardActions>
-                <Button variant="contained" color="primary"
-                    onClick={handleSubmit}>Next</Button>
-                </CardActions>
-            </Card>
-
+                        <Rating
+                            name="customized-icons"
+                            defaultValue={0}
+                            value={newFeeling}
+                            getLabelText={(value) => customIcons[value].label}
+                            IconContainerComponent={IconContainer}
+                            onChange={(event, newValue) => setNewFeeling(newValue)}
+                        />
+                    </CardContent>
+                    <CardActions>
+                        <Button variant="contained" color="primary"
+                            onClick={handleSubmit}>Next</Button>
+                    </CardActions>
+                </Card>
+            </Grid>
+        </Grid >
     )
 }
 
