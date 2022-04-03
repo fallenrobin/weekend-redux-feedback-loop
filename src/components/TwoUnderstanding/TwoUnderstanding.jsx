@@ -119,7 +119,7 @@ function TwoUnderstanding() {
                 <Card className={classes.root} variant="outlined">
                     <CardContent>
                         <Typography className={classes.title} color="textSecondary" gutterBottom>
-                            1 of 4
+                            2 of 4
                         </Typography>
 
                         <Typography variant="h5" component="h2">

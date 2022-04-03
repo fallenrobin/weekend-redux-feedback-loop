@@ -148,7 +148,6 @@ function ThreeSupport() {
 
   return (
 
-
     <Grid
       container
       spacing={0}
@@ -163,7 +162,7 @@ function ThreeSupport() {
         <Card className={classes.root} variant="outlined">
           <CardContent>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
-              1 of 4
+              3 of 4
             </Typography>
 
             <Typography variant="h5" component="h2">
@@ -171,7 +170,7 @@ function ThreeSupport() {
             </Typography>
 
             <Typography className={classes.pos} color="textSecondary">
-              How many hearthands supported you today?
+              How many hearthands supported you?
             </Typography>
 
             <Rating
