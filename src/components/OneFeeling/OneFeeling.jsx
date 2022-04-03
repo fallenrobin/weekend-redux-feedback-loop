@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 
+//MUI for icon rating
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
@@ -14,14 +15,12 @@ import Box from '@material-ui/core/Box';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-//start card stuff
-// import { makeStyles } from '@material-ui/core/styles';
+//start specific MUI card content
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-// import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-//grid for centering
+//grid for centering card
 import Grid from '@material-ui/core/Grid';
 
 //card centering resource: https://stackoverflow.com/questions/53183297/material-ui-card-will-not-center-react-js
@@ -107,14 +106,13 @@ function OneFeeling(params) {
     // for card
     const classes = useStyles();
     // const bull = <span className={classes.bullet}>•</span>; //not using bullets rn
-    //end card
 
     const handleSubmit = (event) => {
         console.log('clicked into handleSubmit!', newFeeling);
-        // event.preventDefault(); not needed
+        // event.preventDefault(); not needed because it's icons not input field
         if (newFeeling === 0) {
             alert('Please look in a mirror and then click the face that best matches yours to continue!')
-        } else {
+        } else { //sending the selected feeling rating to reducer
             dispatch({
                 type: 'ADD_FEELING',
                 payload: {
@@ -122,7 +120,7 @@ function OneFeeling(params) {
                 }
             });
 
-            history.push('/twoUnderstanding');
+            history.push('/twoUnderstanding'); //pushing to next form upon success
         }
     }
 
@@ -156,7 +154,7 @@ function OneFeeling(params) {
                         <Rating
                             name="customized-icons"
                             defaultValue={0}
-                            value={newFeeling}
+                            value={newFeeling} //uses label from above customIcons
                             getLabelText={(value) => customIcons[value].label}
                             IconContainerComponent={IconContainer}
                             onChange={(event, newValue) => setNewFeeling(newValue)}

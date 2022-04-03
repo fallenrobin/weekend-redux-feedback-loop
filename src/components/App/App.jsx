@@ -3,16 +3,17 @@ import React from 'react';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
-import '@fontsource/roboto';
+import '@fontsource/roboto';//for MUI
 
+//components
 import OneFeeling from '../OneFeeling/OneFeeling';
 import TwoUnderstanding from '../TwoUnderstanding/TwoUnderstanding';
 import ThreeSupport from '../ThreeSupport/ThreeSupport';
 import FourComments from '../FourComments/FourComments';
 import Review from '../Review/Review';
 import Submitted from '../Submitted/Submitted';
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"></link>//don't understand if this worked? was for font icon in Review
+{/* <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"></link>//don't understand if this worked or not? was for font icon in Review */}
 import Puppetmaster from '../Puppetmaster/Puppetmaster';
 
 function App() {
