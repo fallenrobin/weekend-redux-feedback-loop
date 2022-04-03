@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 
 import Typography from '@mui/material/Typography';
+import VolunteerActivismOutlinedIcon from '@mui/icons-material/VolunteerActivismOutlined';
 import Slider from '@material-ui/core/Slider';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
@@ -88,7 +89,7 @@ function ThreeSupport() {
       <div >
 
         <Typography id="discrete-slider-custom" gutterBottom>
-          How supported did you feel today?
+          Pick 1 through 5
         </Typography>
         <Box sx={{ width: 300 }}>
           <Slider
@@ -106,7 +107,8 @@ function ThreeSupport() {
 
 
       </div>
-      <button type="button" onClick={() => history.push('/twoUnderstanding')}>Go Back</button>
+      <Button variant="contained" type="button"
+        onClick={() => history.push('/twoUnderstanding')}>Go Back</Button>
       <Button variant="contained" color="primary"
         onClick={handleSubmit}>Next</Button>
     </div>

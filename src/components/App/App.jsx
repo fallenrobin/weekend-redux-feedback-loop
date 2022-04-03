@@ -11,6 +11,8 @@ import ThreeSupport from '../ThreeSupport/ThreeSupport';
 import FourComments from '../FourComments/FourComments';
 import Review from '../Review/Review';
 import Submitted from '../Submitted/Submitted';
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"></link>
 
 function App() {
 
