@@ -1,4 +1,4 @@
-# Full Stack React-Redux Feedback Form
+# Full Stack React-Redux Feedback Loop
 
 ## Description
 
