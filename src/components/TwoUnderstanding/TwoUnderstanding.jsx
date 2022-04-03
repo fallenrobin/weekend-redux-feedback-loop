@@ -12,6 +12,13 @@ import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+//grid for centering
+import Grid from '@material-ui/core/Grid';
 
 
 
@@ -47,6 +54,24 @@ IconContainer.propTypes = {
     value: PropTypes.number.isRequired,
 };
 
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            '& > *': {
+                margin: theme.spacing(1),
+            },
+            minWidth: 275,//card
+            maxWidth: 400,
+        },
+        title: {
+            fontSize: 14,
+        },
+        pos: {
+            marginBottom: 12,
+        },
+    }),
+);
+
 function TwoUnderstanding() {
 
 
@@ -57,13 +82,15 @@ function TwoUnderstanding() {
 
     const [newUnderstanding, setNewUnderstanding] = useState(0);
 
+    const classes = useStyles(); //for card
+
 
 
     const handleSubmit = (event) => {
         console.log('clicked into handleSubmit!', newUnderstanding);
         // event.preventDefault();
         if (newUnderstanding === 0) {
-            alert('Please click a person who represents your level of understanding to continue!')
+            alert('Reflect on your mental grasp of the content, and place yourself on a scale of Incompetent-Baby to Velodrome-Racer to continue!')
         } else {
             dispatch({
                 type: 'ADD_UNDERSTANDING',
@@ -78,24 +105,48 @@ function TwoUnderstanding() {
 
 
     return (
-        <div>
-            <div>
-                <h1>How well are you understanding the content?</h1>
-            </div>
-            <Box component="fieldset" mb={3} borderColor="transparent">
-                <Rating
-                    name="highlight-selected-only"
-                    defaultValue={0}
-                    IconContainerComponent={IconContainer}
-                    highlightSelectedOnly
-                    onChange={(event, newValue) => setNewUnderstanding(newValue)}
-                />
-            </Box>
-            <Button variant="contained" type="button" onClick={() => history.push('/')}>Go Back</Button>
-            <Button variant="contained" color="primary" type="button"
-                onClick={handleSubmit}>Next</Button>
+        <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            // justify="center" //better without; this puts in very center of page
+            style={{ minHeight: '100vh' }}
+        >
 
-        </div>
+            <Grid item xs={6}>
+
+                <Card className={classes.root} variant="outlined">
+                    <CardContent>
+                        <Typography className={classes.title} color="textSecondary" gutterBottom>
+                            2 of 4
+                        </Typography>
+
+                        <Typography variant="h5" component="h2">
+                            How well are you understanding all this stuff today?
+                        </Typography>
+
+                        <Typography className={classes.pos} color="textSecondary">
+                            pick how cognitively evolved you feel
+                        </Typography>
+
+                        <Rating
+                            name="highlight-selected-only"
+                            defaultValue={0}
+                            IconContainerComponent={IconContainer}
+                            highlightSelectedOnly
+                            onChange={(event, newValue) => setNewUnderstanding(newValue)}
+                        />
+                    </CardContent>
+
+                    <CardActions style={{justifyContent: 'center'}}>
+                        <Button variant="contained" type="button" onClick={() => history.push('/')}>Go Back</Button>
+                        <Button variant="contained" color="primary" type="button"
+                            onClick={handleSubmit}>Next</Button>
+                    </CardActions>
+                </Card>
+            </Grid>
+        </Grid >
     )
 }
 

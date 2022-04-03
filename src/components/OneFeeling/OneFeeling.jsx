@@ -14,12 +14,43 @@ import Box from '@material-ui/core/Box';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
+//start card stuff
+// import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+// import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+//grid for centering
+import Grid from '@material-ui/core/Grid';
+
+//card centering resource: https://stackoverflow.com/questions/53183297/material-ui-card-will-not-center-react-js
+
+
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             '& > *': {
                 margin: theme.spacing(1),
             },
+            minWidth: 275,//card
+            maxWidth: 400,
+        },
+        // root: {
+        //     minWidth: 275,
+        //   },
+        //below is for card
+        // bullet: {
+        //     display: 'inline-block',
+        //     margin: '0 2px',
+        //     transform: 'scale(0.8)',
+        // },
+        title: {
+            fontSize: 14,
+        },
+        pos: {
+            marginBottom: 12,
         },
     }),
 );
@@ -73,9 +104,14 @@ function OneFeeling(params) {
 
     const [newFeeling, setNewFeeling] = useState(0);
 
+    // for card
+    const classes = useStyles();
+    // const bull = <span className={classes.bullet}>•</span>; //not using bullets rn
+    //end card
+
     const handleSubmit = (event) => {
         console.log('clicked into handleSubmit!', newFeeling);
-        // event.preventDefault();
+        // event.preventDefault(); not needed
         if (newFeeling === 0) {
             alert('Please look in a mirror and then click the face that best matches yours to continue!')
         } else {
@@ -91,26 +127,49 @@ function OneFeeling(params) {
     }
 
     return (
-        <div className="feedbackBox">
-            <div>
-                <h1>How are you feeling today?</h1>
-            </div>
-            <form>
-                <Box component="fieldset" mb={3} borderColor="transparent">
-                    <Rating
-                        name="customized-icons"
-                        defaultValue={0}
-                        value={newFeeling}
-                        getLabelText={(value) => customIcons[value].label}
-                        IconContainerComponent={IconContainer}
-                        onChange={(event, newValue) => setNewFeeling(newValue)}
-                    />
-                </Box>
-                <Button variant="contained" color="primary"
-                    onClick={handleSubmit}>Next</Button>
-            </form>
 
-        </div>
+        <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            // justify="center" //better without; this puts in very center of page
+            style={{ minHeight: '100vh' }}
+        >
+
+            <Grid item xs={6}>
+
+                <Card className={classes.root} variant="outlined">
+                    <CardContent>
+                        <Typography className={classes.title} color="textSecondary" gutterBottom>
+                            1 of 4
+                        </Typography>
+
+                        <Typography variant="h5" component="h2">
+                            How are your feels today?
+                        </Typography>
+
+                        <Typography className={classes.pos} color="textSecondary">
+                            pick a face
+                        </Typography>
+
+                        <Rating
+                            name="customized-icons"
+                            defaultValue={0}
+                            value={newFeeling}
+                            getLabelText={(value) => customIcons[value].label}
+                            IconContainerComponent={IconContainer}
+                            onChange={(event, newValue) => setNewFeeling(newValue)}
+                        />
+                    </CardContent>
+
+                    <CardActions style={{justifyContent: 'center'}}>
+                        <Button variant="contained" color="primary"
+                            onClick={handleSubmit}>Next</Button>
+                    </CardActions>
+                </Card>
+            </Grid>
+        </Grid >
     )
 }
 
