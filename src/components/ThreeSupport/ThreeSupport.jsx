@@ -11,6 +11,8 @@ import VolunteerActivismOutlinedIcon from '@mui/icons-material/VolunteerActivism
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
+// import Alert from '@material-ui/lab/Alert'; Hm couldn't get to pop up..? Revisit later. (removed rest of that code)
+
 
 const StyledRating = withStyles({
   iconFilled: {
@@ -20,6 +22,8 @@ const StyledRating = withStyles({
       color: '#ff3d47',
   },
 })(Rating);
+
+
 
 const customIcons = {
   1: {
@@ -64,38 +68,40 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const marks = [
-  {
-    value: 1,
-    label: '1',
-  },
-  {
-    value: 2,
-    label: '2',
-  },
-  {
-    value: 3,
-    label: '3',
-  },
-  {
-    value: 4,
-    label: '4',
-  },
-  {
-    value: 5,
-    label: '5',
-  },
-];
 
-function valuetext(value) {
-  return `${value}`;
-}
+// const marks = [
+//   {
+//     value: 1,
+//     label: '1',
+//   },
+//   {
+//     value: 2,
+//     label: '2',
+//   },
+//   {
+//     value: 3,
+//     label: '3',
+//   },
+//   {
+//     value: 4,
+//     label: '4',
+//   },
+//   {
+//     value: 5,
+//     label: '5',
+//   },
+// ];
+
+// function valuetext(value) {
+//   return `${value}`;
+// }
 
 function ThreeSupport() {
 
   const dispatch = useDispatch();
   const orderReducer = useSelector(store => store.scoreReducer)
   const history = useHistory();
+
 
   const [newSupport, setNewSupport] = useState(0);
 

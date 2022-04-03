@@ -77,7 +77,7 @@ function OneFeeling(params) {
         console.log('clicked into handleSubmit!', newFeeling);
         // event.preventDefault();
         if (newFeeling === 0) {
-            alert('Please click a smiley to continue!')
+            alert('Please look in a mirror and then click the face that best matches yours to continue!')
         } else {
             dispatch({
                 type: 'ADD_FEELING',
@@ -91,7 +91,7 @@ function OneFeeling(params) {
     }
 
     return (
-        <div>
+        <div className="feedbackBox">
             <div>
                 <h1>How are you feeling today?</h1>
             </div>
@@ -106,7 +106,6 @@ function OneFeeling(params) {
                         onChange={(event, newValue) => setNewFeeling(newValue)}
                     />
                 </Box>
-                {/* <input type="number" ></input> */}
                 <Button variant="contained" color="primary"
                     onClick={handleSubmit}>Next</Button>
             </form>

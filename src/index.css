@@ -3,3 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.feedbackBox {
+  border: 1 px solid black !important;
+}

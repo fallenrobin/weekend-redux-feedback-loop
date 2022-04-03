@@ -55,11 +55,10 @@ function Review() {
                 <Button
                     variant="contained"
                     color="primary"
-                    // id="sendBtn"
+                    id="sendBtn"
                     className={classes.button}
                     // endIcon={<Icon>send</Icon>}
                     onClick={handleSubmit}>Send Feedback</Button>
-
             </div>
 
         </>
